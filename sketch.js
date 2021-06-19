@@ -1,5 +1,5 @@
 let video;
-let label = 'waiting...';
+let label = 'waiting for video feed to load...';
 let classifier;
 let snake;
 let rez=20;
@@ -7,14 +7,13 @@ let food;
 let w;
 let h;
 
-
 function preload()
 {
-  
   classifier = ml5.imageClassifier(' https://storage.googleapis.com/tm-model/z2Y0eNeiG/model.json')
 }
 
-function setup() {
+function setup() 
+{
   createCanvas(800, 600);
   video=createCapture(VIDEO);
   video.hide();
@@ -28,10 +27,12 @@ function setup() {
   foodLocation();
   
 }
+
 function classifyVideo()
 {
   classifier.classify(video, gotResults);
 }
+
 function gotResults(error, results)
 {
   if(error)
@@ -43,7 +44,9 @@ function gotResults(error, results)
   controlSnake();
   classifyVideo();
 }
-function foodLocation() {
+
+function foodLocation() 
+{
   let x = floor(random(w));
   let y = floor(random(h));
   food = createVector(x, y);
@@ -68,8 +71,9 @@ function controlSnake() {
   }  
 }
 
-function draw() {
-  background(255);
+function draw() 
+{
+  background(200);
   push();
   translate(width,0);
   scale(-1, 1);
@@ -80,7 +84,8 @@ function draw() {
   textSize(22);
   fill(255);
   scale(rez);
-  if (snake.eat(food)) {
+  if (snake.eat(food)) 
+  {
     foodLocation();
   }
   snake.update();
@@ -88,13 +93,11 @@ function draw() {
 
   if (snake.endGame()) 
   {
-    background(255, 255, 255);
+    background(0,0,0);
     textSize(32);
-    fill(255);
-    print('END GAME');
+    window.alert('Game Over, please refresh the page.')
     NoLoop();
   }
-
   noStroke();
   fill(255, 0, 0);
   rect(food.x, food.y, 1, 1);

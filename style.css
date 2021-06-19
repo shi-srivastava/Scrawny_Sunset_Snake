@@ -4,4 +4,7 @@ html, body {
 }
 canvas {
   display: block;
+  border-width: 5em;
+  border-color: blueviolet;
+
 }
