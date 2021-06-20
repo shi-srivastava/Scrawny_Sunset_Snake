@@ -1,10 +1,18 @@
 html, body {
   margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
 }
 canvas {
   display: block;
   border-width: 5em;
   border-color: blueviolet;
-
+}
+h1{
+  font-family: 'Times New Roman', Times, serif;
+  color: blueviolet;
+  align-self: center;
 }
