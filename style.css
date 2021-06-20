@@ -14,5 +14,5 @@ canvas {
 h1{
   font-family: 'Times New Roman', Times, serif;
   color: blueviolet;
-  align-self: center;
+  text-align-last: center;
 }
